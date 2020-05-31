@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPOI.Extensions", "NPOI.Ext
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPOI.Extensions.XUnitTest", "NPOI.Extensions.Tests\NPOI.Extensions.XUnitTest.csproj", "{26500AE4-4542-4CD9-9311-643B12A9573B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPOI.Extensions.Samples", "NPOI.Extensions.Samples\NPOI.Extensions.Samples.csproj", "{25A62B77-F2E9-4942-AA0D-DF5CDABED4E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPOI.Extensions.Samples", "NPOI.Extensions.Samples\NPOI.Extensions.Samples.csproj", "{25A62B77-F2E9-4942-AA0D-DF5CDABED4E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "root", "root", "{7C91185C-55C9-48AF-A655-10C7A1265A36}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

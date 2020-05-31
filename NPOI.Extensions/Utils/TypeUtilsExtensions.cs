@@ -7,6 +7,7 @@ namespace NPOI.Extensions.Utils
     /// <summary>
     /// Original implementation from TypeUtils.cs (ILSpy);
     /// Some methods were changed to extension methods;
+    /// Some additional functions were introduced;
     /// </summary>
     public static class TypeUtilsExtensions
     {

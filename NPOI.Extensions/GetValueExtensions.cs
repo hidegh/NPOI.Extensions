@@ -35,7 +35,7 @@ namespace NPOI.Extensions
                 var formatter = new DataFormatter();
                 var formattedValue = formatter.FormatCellValue(cell);
 
-                // replace non-breakign space with regular space
+                // replace non-breakign space with regular space (nbsp were uses with numeric formatting)
                 formattedValue = formattedValue.Replace(Convert.ToChar(160), ' ');
 
                 return (T) (object) formattedValue;
