@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPOI.Extensions", "NPOI.Ext
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NPOI.Extensions.XUnitTest", "NPOI.Extensions.Tests\NPOI.Extensions.XUnitTest.csproj", "{26500AE4-4542-4CD9-9311-643B12A9573B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NPOI.Extensions.Samples", "NPOI.Extensions.Samples\NPOI.Extensions.Samples.csproj", "{25A62B77-F2E9-4942-AA0D-DF5CDABED4E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{26500AE4-4542-4CD9-9311-643B12A9573B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26500AE4-4542-4CD9-9311-643B12A9573B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26500AE4-4542-4CD9-9311-643B12A9573B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25A62B77-F2E9-4942-AA0D-DF5CDABED4E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25A62B77-F2E9-4942-AA0D-DF5CDABED4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25A62B77-F2E9-4942-AA0D-DF5CDABED4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25A62B77-F2E9-4942-AA0D-DF5CDABED4E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
