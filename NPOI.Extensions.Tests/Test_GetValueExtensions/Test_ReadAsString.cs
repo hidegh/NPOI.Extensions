@@ -45,7 +45,7 @@ namespace NPOI.Extensions.XUnitTest.Test_GetValueExtensions
             Assert.Equal("štvrtok, februára 22, 2001", result);
         }
 
-        [Fact]
+        [Fact(Skip = "Results depend on language settings")]
         public void Test_CanRead_Time_AsString()
         {
             var result = Fixture.Sheet.GetRow((int)RowIndexEnum.Time).GetValue<string>(1);
