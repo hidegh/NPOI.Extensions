@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace NPOI.Extensions.XUnitTest.Test_GetValueExtensions
 {
@@ -22,7 +23,7 @@ namespace NPOI.Extensions.XUnitTest.Test_GetValueExtensions
             var result = Fixture.Sheet.GetRow((int)RowIndexEnum.Number).GetValue<string>(1);
             Assert.NotNull(result);
             Assert.NotEmpty(result);
-            Assert.Equal("19,2", result);
+            Assert.Equal(19.2m.ToString(), result);
         }
 
         [Fact(Skip = "Results depend on language settings")]
@@ -35,23 +36,22 @@ namespace NPOI.Extensions.XUnitTest.Test_GetValueExtensions
             Assert.Equal("TRUE", result);
         }
 
-        [Fact(Skip = "Results depend on language settings")]
+        [Fact]
         public void Test_CanRead_Date_AsString()
         {
             var result = Fixture.Sheet.GetRow((int)RowIndexEnum.Date).GetValue<string>(1);
             Assert.NotNull(result);
             Assert.NotEmpty(result);
-            // NOTE: result might vary due to windows language settings
-            Assert.Equal("štvrtok, februára 22, 2001", result);
+            Assert.Equal(new DateTime(2001, 2, 22).ToString("dddd, MMMM dd, yyyy"), result);
         }
 
-        [Fact(Skip = "Results depend on language settings")]
+        [Fact()]
         public void Test_CanRead_Time_AsString()
         {
             var result = Fixture.Sheet.GetRow((int)RowIndexEnum.Time).GetValue<string>(1);
             Assert.NotNull(result);
             Assert.NotEmpty(result);
-            Assert.Equal("11:00 PM", result);
+            Assert.Equal(new DateTime().Add(TimeSpan.FromHours(23)).ToString("hh:mm tt"), result);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace NPOI.Extensions.XUnitTest.Test_GetValueExtensions
             var result = Fixture.Sheet.GetRow((int)RowIndexEnum.NumberFormatted).GetValue<string>(1);
             Assert.NotNull(result);
             Assert.NotEmpty(result);
-            Assert.Equal("1 000,50", result);
+            Assert.Equal(1000.5m.ToString("N2"), result);
         }
 
         [Fact]
@@ -69,7 +69,7 @@ namespace NPOI.Extensions.XUnitTest.Test_GetValueExtensions
             var result = Fixture.Sheet.GetRow((int)RowIndexEnum.NumberFormattedAsCurrency).GetValue<string>(1);
             Assert.NotNull(result);
             Assert.NotEmpty(result);
-            Assert.Equal("1 500,75 €", result);
+            Assert.Equal(1500.75m.ToString("N2") + " €", result);
         }
 
     }
