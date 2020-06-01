@@ -1,0 +1,35 @@
+name: NPOI.Extensions repo - NuGet publishing
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.100
+
+    - name: Build
+      run: dotnet build --configuration Release
+      working-directory: ./NPOI.Extensions
+
+    - name: Run unit tests
+      run: dotnet test --configuration Release
+      working-directory: ./NPOI.Extensions.Tests
+
+    - name: Generate nuget package
+      run: dotnet pack --configuration Release -o nupkg
+      working-directory: ./NPOI.Extensions
+
+    - name: Publish nuget package
+      run: find . -name *.nupkg -type f -print0 | xargs -0 -I pkg dotnet nuget push pkg -k $nuget_api_key -s "https://api.nuget.org/v3/index.json" --skip-duplicate
+      env:
+        nuget_api_key: ${{ secrets.NUGET_API_KEY }}
+      working-directory: ./NPOI.Extensions/nupkg
