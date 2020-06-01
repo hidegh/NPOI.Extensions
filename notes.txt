@@ -1,2 +1,0 @@
-https://resources.whitesourcesoftware.com/blog-whitesource/open-source-licenses-explained
-https://snyk.io/blog/mit-apache-bsd-fairest-of-them-all/

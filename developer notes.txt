@@ -1,0 +1,39 @@
+LICENSES:
+
+    https://resources.whitesourcesoftware.com/blog-whitesource/open-source-licenses-explained
+    https://snyk.io/blog/mit-apache-bsd-fairest-of-them-all/
+
+
+NUGET:
+
+    https://alessio.franceschelli.me/posts/dotnet/build-a-dotnet-library-with-github-actions/
+    - setting us CSPROJ (IsPackable T|F)
+    - log in to NUGET, create API key (specific for the REPO, use * as you probably can't select a given package)
+    - on the repository save the key (settings, secrets)
+    - in CSPROJ (VS.NET) open settings, set up package details
+
+        <PropertyGroup>
+            <TargetFramework>netstandard2.0</TargetFramework>
+            <IsPackable>true</IsPackable>
+            <Authors>Balázs HIDEGHÉTY</Authors>
+            <Description>Extension to the https://github.com/tonyqus/npoi project, which simplifies reading values from excel (into typed properties) and adds a simple mapping support to map sheets into typed lists.</Description>
+            <Copyright>MIT</Copyright>
+            <RepositoryUrl>https://github.com/hidegh/NPOI.Extensions</RepositoryUrl>
+            <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+            <PackageLicenseExpression>MIT</PackageLicenseExpression>
+            <RepositoryType>git</RepositoryType>
+        </PropertyGroup>
+
+        Q: Do we need to set this up? <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    use the yml script from one of these sources:
+    - https://alessio.franceschelli.me/posts/dotnet/build-a-dotnet-library-with-github-actions/
+    - https://www.blexin.com/en-US/Article/Blog/Publishing-NuGet-packages-with-GitHub-Actions-75
+        - related article: https://www.blexin.com/en-US/Article/Blog/Validate-Pull-Requests-using-GitHub-Actions-62
+        - note: this contains some versioning related details as well
+    - https://brainlesscoder.com/2019/12/25/publishing-net-standard-nuget-package-with-github-actions/
+
+    one with package signing: https://timheuer.com/blog/use-nuget-with-github-actions-github-packages/
+
+    also good script/article: https://github.com/marketplace/actions/publish-nuget
+
