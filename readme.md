@@ -1,4 +1,7 @@
 # NPOI.Extensions
+
+![Nuget](https://img.shields.io/nuget/v/NPOI.Extensions?label=NuGet%3A%20NPOI.Extensions%20%28make%20sure%20you%20use%20plural%29&logo=nuget)
+
 This package is an extension to the https://github.com/tonyqus/npoi, as I found reading excel values with the basic interface a bit cumbersome.
 
 > On my pet projects I used less flexible helper functions for reading excel cell values. They always adressed just the needs of a given use-case and were not tested for flexibility and corner-case cenarios.
