@@ -44,13 +44,32 @@ namespace NPOI.Extensions
             }
 
             // fetching other value types
-            if (type == typeof(char)) return (T)(object)(char)cell.NumericCellValue;
-            else if (type.IsNumeric()) return (T)Convert.ChangeType(cell.NumericCellValue, type);
+            if (type.GetNonNullableType() == typeof(char)) return (T)(object)(char)cell.NumericCellValue;
+            else if (type.IsNumeric()) return (T)ChangeTypeEx(cell.NumericCellValue, type);
             else if (type.IsDateTime()) return (T)(object)cell.DateCellValue;
             else if (type.IsTimeSpan()) return (T)(object) TimeSpan.FromDays(cell.NumericCellValue);
             else if (type.IsBool()) return (T)(object)cell.BooleanCellValue;
             else throw new NotSupportedException($"Can't handle type'{type.FullName}'!");
         }
 
+        private static object ChangeTypeEx(object value, Type conversion)
+        {
+            var t = conversion;
+
+            if (t.IsGenericType && t.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+            {
+                if (value == null)
+                {
+                    return null;
+                }
+
+                t = Nullable.GetUnderlyingType(t);
+            }
+
+            return Convert.ChangeType(value, t);
+        }
+
     }
+
+
 }
