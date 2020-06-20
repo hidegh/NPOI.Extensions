@@ -1,0 +1,57 @@
+name: Version-build-test-package-tag-publish
+
+# note:
+# make sure you escape things correctly, a : inside a string parameter will evaluate to a YAML error (placeholder when refering parameters)
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  job:
+     
+    runs-on: windows-latest
+
+    env:
+      nugetFolder: "nupkg"
+
+    steps:
+      
+      - uses: actions/checkout@v2
+
+      - name: Increment version
+        run: powershell ./incrementVersion.ps1
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+      - name: Run unit tests
+        run: dotnet test --configuration Release
+
+      - name: Pack
+        run: powershell ./pack.ps1 -nugetFolder $env:nugetFolder
+
+      - name: Fetch status
+        run: git status
+
+      - name: Set identity
+        run: git config user.name "[Build-process]" ; git config user.email "[build@process.id]"
+
+      - name: Commit
+        run: git commit -a -m "Releasing $env:BUILDING_VERSION"
+
+      - name: Push
+        run: git push origin master
+
+      - name: Publish nuget packages # originally based on: https://brainlesscoder.com/2019/12/25/publishing-net-standard-nuget-package-with-github-actions/
+        run: powershell ./publish.ps1 -nugetApiKey ${{ secrets.NUGET_API_KEY }} -nugetFolder $env:nugetFolder
+
+      - name: Calculate TAG
+        run: powershell ./calculateTag.ps1 -versionParameter $env:BUILDING_VERSION -prefix "PROD-"
+
+      - name: Add TAG
+        run: git tag -a $env:VERSION_TAG -m "Tag for build $env:BUILDING_VERSION"
+
+      - name: Push TAG
+        run: git push origin $env:VERSION_TAG

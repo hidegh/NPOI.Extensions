@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <Authors>balázs HIDEGHÉTY</Authors>
+    <Company>balázs HIDEGHÉTY</Company>
+    <Copyright>(c) 2020 by balázs HIDEGHÉTY</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.1.0</Version>
+    <!--
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+        -->
+  </PropertyGroup>
+</Project>

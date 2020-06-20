@@ -3,14 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <IsPackable>true</IsPackable>
-    <Authors>Balázs HIDEGHÉTY</Authors>
     <Description>Extension to the https://github.com/tonyqus/npoi project, which simplifies reading values from excel (into typed properties) and adds a simple mapping support to map sheets into typed lists.</Description>
-    <Copyright>MIT</Copyright>
     <RepositoryUrl>https://github.com/hidegh/NPOI.Extensions</RepositoryUrl>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
-    <Version>1.0.1</Version>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
